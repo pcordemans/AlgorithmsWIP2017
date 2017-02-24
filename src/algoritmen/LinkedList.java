@@ -91,6 +91,20 @@ public class LinkedList<T> {
 		return size == 0;
 	}
 	
+	/**
+	 * Finds the element in the list
+	 * @param element to find
+	 * @return true if present in the list otherwise false
+	 */
+	public boolean find(T element){
+		Node cursor = head;
+		do{
+			if(cursor.get().equals(element)) return true;
+		}
+		while(cursor.next() != null);
+		return false;
+	}
+	
 	private int count(){
 		if(head == null) return 0;
 		int total = 1;
