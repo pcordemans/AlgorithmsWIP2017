@@ -10,6 +10,7 @@ package algoritmen;
  */
 public class LinkedList<T> {
 	private Node head;
+	private int size;
 	
 	/**
 	 * Constructor for a linked list with one element
@@ -18,6 +19,7 @@ public class LinkedList<T> {
 	 */
 	public LinkedList(T element){
 		head = new Node(element);
+		size = 1;
 	}
 	
 	/**
@@ -28,6 +30,7 @@ public class LinkedList<T> {
 	public void prepend(T element){
 		Node newNode = new Node(element, head);
 		head = newNode;
+		size++;
 	}
 	
 	/**
@@ -36,6 +39,22 @@ public class LinkedList<T> {
 	 */
 	public T first(){
 		return head.get();
+	}
+	
+	/**
+	 * 
+	 * @return the number of elements in the linked list
+	 */
+	public int size(){
+		return size;
+	}
+	
+	/**
+	 * 
+	 * @return true if empty, false if the linked list contains elements
+	 */
+	public boolean isEmpty(){
+		return size == 0;
 	}
 	
 	private class Node{

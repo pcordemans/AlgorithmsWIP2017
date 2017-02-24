@@ -18,12 +18,15 @@ public class TestLinkedList {
 	@Test
 	public void testFirst() {		
 		assertEquals("1", linkedlist.first());
+		assertEquals(1, linkedlist.size());
+		assertEquals(false, linkedlist.isEmpty());
 	}
 	
 	@Test
-	public void testAppend(){
+	public void testPrepend(){
 		linkedlist.prepend("2");
 		assertEquals("2", linkedlist.first());
+		assertEquals(2, linkedlist.size());
 	}
 
 }
