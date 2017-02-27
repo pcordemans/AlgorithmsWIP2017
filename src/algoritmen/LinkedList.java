@@ -32,7 +32,7 @@ public class LinkedList<T> {
 	
 	private LinkedList(Node node){
 		head = node;
-		size = count();
+		size = count(node, 0);
 	}
 	
 	/**
@@ -60,11 +60,12 @@ public class LinkedList<T> {
 	 * @return the last element of the list
 	 */
 	public T last(){
-		Node cursor = head;
-		while(cursor.next() != null){
-			cursor = cursor.next();
-		}
-		return cursor.get();
+		return lastRecursive(head).get();
+	}
+	
+	private Node lastRecursive(Node current){
+		if(current.next() == null) return current;
+		return lastRecursive(current.next());
 	}
 	
 	/**
@@ -105,13 +106,9 @@ public class LinkedList<T> {
 		return false;
 	}
 	
-	private int count(){
-		if(head == null) return 0;
-		int total = 1;
-		while(head.next() != null){
-			total++;
-		}
-		return total;
+	private int count(Node current, int total){
+		if(current == null) return total;
+		return count(current.next(), ++total);
 	}
 	
 	private class Node{
