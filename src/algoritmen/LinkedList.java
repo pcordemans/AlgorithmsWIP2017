@@ -1,5 +1,7 @@
 package algoritmen;
 
+import java.util.Iterator;
+
 /**
  * 
  * @author P. Cordemans
@@ -8,7 +10,7 @@ package algoritmen;
  *
  * @param <T> type of the parameter
  */
-public class LinkedList<T> {
+public class LinkedList<T> implements Iterable<T> {
 	private Node head;
 	private int size;
 	
@@ -109,6 +111,26 @@ public class LinkedList<T> {
 	private int count(Node current, int total){
 		if(current == null) return total;
 		return count(current.next(), ++total);
+	}
+	
+	public Iterator<T> iterator(){
+		return new LinkedListIterator();
+	}
+	
+	private class LinkedListIterator implements Iterator<T>{
+		private Node index = head;
+		@Override
+		public boolean hasNext() {
+			return index != null;
+		}
+
+		@Override
+		public T next() {
+			T element = index.get();
+			index = index.next();
+			return element;
+		}
+		
 	}
 	
 	private class Node{

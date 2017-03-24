@@ -63,4 +63,14 @@ public class TestLinkedList {
 	public void testFind(){
 		assertTrue(linkedlist.find("1"));
 	}
+	
+	@Test
+	public void testIterator(){
+		linkedlist.prepend("A");
+		StringBuffer buf = new StringBuffer();
+		for(String s : linkedlist){
+			buf.append(s);
+		}
+		assertEquals("A1", buf.toString());
+	}
 }
