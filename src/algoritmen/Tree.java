@@ -26,14 +26,26 @@ public class Tree<T> {
 		return root;
 	}
 	
+	/**
+	 * Adds an element as child to the position
+	 * @param pos
+	 * @param element
+	 */
+	public void addChild(Position<T> pos, T element){
+		TreeNode node = validate(pos);
+		node.addChild(new TreeNode(element, pos));
+	}
+	
 	private TreeNode validate(Position<T> pos)throws IllegalArgumentException{
 		if(!(pos instanceof Tree.TreeNode)) throw new IllegalArgumentException("Invalid position");
 		TreeNode node = (TreeNode) pos;
 		return node;
 	}
 	
+	
+	
 	private class TreeNode implements Position<T>{
-		private TreeNode parent;
+		private Position<T> parent;
 		private T element;
 		private ArrayList<Position<T>> children;
 		
@@ -41,6 +53,12 @@ public class Tree<T> {
 			this.element = element;
 			children = new ArrayList<Position<T>>();
 			parent = null;
+		}
+		
+		public TreeNode(T element, Position<T> parent){
+			this.element = element;
+			this.parent = parent;
+			children = new ArrayList<Position<T>>();
 		}
 		
 		public T get(){
@@ -55,6 +73,10 @@ public class Tree<T> {
 		@Override
 		public Position<T> parent() {
 			return parent;
+		}
+		
+		public void addChild(TreeNode child){
+			children.add(child);
 		}
 	}
 }
