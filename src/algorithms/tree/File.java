@@ -14,4 +14,9 @@ public class File extends FSElement {
 		super.size = size;
 		super.name = name;
 	}
+	
+	@Override
+	public String toString(){
+		return "File: "+ name + " size: " + size;
+	}
 }
