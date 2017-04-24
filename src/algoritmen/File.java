@@ -3,10 +3,7 @@ package algoritmen;
 /**
  * Represents a File in the FileSystem
  */
-public class File implements FSElement {
-
-	private int size;
-	private String name;
+public class File extends FSElement {
 	
 	/**
 	 * Constructs a File with a given name and size
@@ -14,18 +11,7 @@ public class File implements FSElement {
 	 * @param size
 	 */
 	public File(String name, int size){
-		this.size = size;
-		this.name = name;
+		super.size = size;
+		super.name = name;
 	}
-	
-	@Override
-	public int getSize() {
-		return size;
-	}
-
-	@Override
-	public String getName() {
-		return name;
-	}
-
 }
