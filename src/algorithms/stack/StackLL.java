@@ -1,4 +1,6 @@
-package algoritmen;
+package algorithms.stack;
+
+import algorithms.linkedlist.LinkedList;
 
 /**
  * Implements a Stack based on a Linked List

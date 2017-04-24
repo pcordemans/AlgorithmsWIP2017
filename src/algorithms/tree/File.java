@@ -1,4 +1,4 @@
-package algoritmen;
+package algorithms.tree;
 
 /**
  * Represents a File in the FileSystem

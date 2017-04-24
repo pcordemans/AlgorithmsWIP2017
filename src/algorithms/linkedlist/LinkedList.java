@@ -1,4 +1,4 @@
-package algoritmen;
+package algorithms.linkedlist;
 
 import java.util.Iterator;
 

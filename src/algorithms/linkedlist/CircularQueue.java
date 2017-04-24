@@ -1,4 +1,4 @@
-package algoritmen;
+package algorithms.linkedlist;
 
 /**
  * Queue with a fixed size, circular behavior

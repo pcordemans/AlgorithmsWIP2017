@@ -1,4 +1,4 @@
-package algoritmen;
+package algorithms.stack;
 
 /**
  * Stack interface
