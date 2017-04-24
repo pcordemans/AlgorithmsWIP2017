@@ -38,4 +38,19 @@ public class TestFileSystem {
 		result.add(new File("test", 5));
 		assertEquals(result, myFS.dir());
 	}
+	
+	@Test
+	public void testSize(){
+		FileSystem myFS = new FileSystem();
+		myFS.mkdir("user");
+		myFS.cd("user");
+		myFS.mkdir("name");
+		myFS.createFile("test", 5);
+		myFS.cd("name");
+		assertEquals(1, myFS.size());
+		myFS.cd("..");
+		assertEquals(7, myFS.size());
+		myFS.cd("..");
+		assertEquals(8, myFS.size());
+	}
 }

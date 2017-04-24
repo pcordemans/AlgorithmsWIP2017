@@ -69,4 +69,13 @@ public class FileSystem {
 		}
 		return list;
 	}
+	
+	/**
+	 * 
+	 * @return the size of the current directory (includes the size of the current directory)
+	 */
+	public int size(){
+		//TODO calculate the size of the current directory (includes all subfolders)
+		return 0;
+	}
 }
